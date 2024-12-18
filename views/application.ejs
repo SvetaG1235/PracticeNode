@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Форма заявки на клининг</title>
     <style>
-        body {
+    body {
     font-family: Arial, sans-serif;
     background-image: url(https://avatars.mds.yandex.net/i?id=5dedb54967337fbb690387ce5418e206_l-4903727-images-thumbs&n=13);
     background-repeat: no-repeat;
@@ -188,7 +188,7 @@ select {
             const requestsContainer = document.getElementById('requestsContainer');
             requestsContainer.innerHTML = '';
 
-            // Проверка на массив
+          
             if (!Array.isArray(data)) {
                 console.error('Полученные данные не являются массивом:', data);
                 requestsContainer.innerHTML = '<p>Ошибка при загрузке заявок.</p>';

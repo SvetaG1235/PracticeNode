@@ -92,14 +92,14 @@
     body: JSON.stringify({ username: login, password })
 })
 .then(response => {
-    console.log('Response:', response); // Выводим ответ в консоль
-    return response.json(); // Получаем JSON-ответ
+    console.log('Response:', response); 
+    return response.json(); 
 })
 .then(data => {
-    console.log('Response data:', data); // Выводим данные ответа
+    console.log('Response data:', data); 
     if (data.success) {
-        // Перенаправление в зависимости от ответа сервера
-        window.location.href = data.redirect; // Перенаправление на страницу после успешного входа
+       
+        window.location.href = data.redirect; 
     } else {
         document.getElementById('message').innerText = data.message; 
     }

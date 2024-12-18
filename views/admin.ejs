@@ -103,7 +103,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', loadRequests);
 
-// Функция для отправки новой заявки
+
 function submitRequest(requestData) {
     fetch('/api/requests', {
         method: 'POST',
@@ -120,16 +120,16 @@ function submitRequest(requestData) {
     })
     .then(data => {
         console.log('Заявка отправлена:', data);
-        loadRequests(); // Обновляем список заявок
+        loadRequests(); 
     })
     .catch(error => {
         console.error('Ошибка при отправке заявки:', error);
     });
 }
 
-// Функция для обновления статуса заявки (принять или отклонить)
+
 function updateRequestStatus(requestId, newStatus) {
-    fetch(`/api/requests/${requestId}/status`, { // Убедитесь, что путь правильный
+    fetch(`/api/requests/${requestId}/status`, { 
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -144,14 +144,14 @@ function updateRequestStatus(requestId, newStatus) {
     })
     .then(data => {
         console.log('Статус обновлен:', data);
-        loadRequests(); // Обновляем список заявок
+        loadRequests(); 
     })
     .catch(error => {
         console.error('Ошибка при обновлении статуса:', error);
     });
 }
 
-// Функция для загрузки заявок
+
 function loadRequests() {
     fetch('/api/requests')
         .then(response => {
@@ -162,7 +162,7 @@ function loadRequests() {
         })
         .then(data => {
             const requestList = document.getElementById('requestList');
-            requestList.innerHTML = ''; // Очищаем список перед обновлением
+            requestList.innerHTML = '';
 
             data.forEach(request => {
                 const li = document.createElement('li');
@@ -186,7 +186,7 @@ function loadRequests() {
         });
 }
 
-// Инициализация загрузки заявок при загрузке страницы
+
 document.addEventListener('DOMContentLoaded', loadRequests);
 
 

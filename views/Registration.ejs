@@ -127,13 +127,13 @@
         let email = event.target.elements.email.value.trim();
         let password = event.target.elements.password.value.trim();
 
-        // Исправлено условие проверки
+  
         if (!username || !email || !password) {
             showMessage('Пожалуйста, заполните все поля.', false);
             return; 
         }
 
-        // Формирование тела запроса (добавлены кавычки)
+        
         fetch('/registration', { 
             method: 'POST',
             headers: {
@@ -141,13 +141,13 @@
             },
             body: username=`${encodeURIComponent(username)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
         })
-        .then(response => response.json()) // Изменено на json для обработки JSON-ответов
+        .then(response => response.json()) 
         .then(data => {
             if (data.success) {
                 showMessage('Регистрация успешна!', true);
-                window.location.href = '/login'; // Исправлено на '/login' для соответствия маршруту
+                window.location.href = '/login'; 
             } else {
-                showMessage(data.message, false); // Передан второй аргумент для отображения ошибки
+                showMessage(data.message, false); 
             }
         })
         .catch(error => console.error('Ошибка:', error));
